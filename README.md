@@ -1,7 +1,7 @@
 # MERN STACK MYSQL
 
 ## Ejemplo practico de MERN usando mysql
-
+---
 ### Requisitos backend:
 
 ### Instalar los paquetes:
@@ -29,3 +29,10 @@
     - Agregamos el archivo index.routes.js
     - Dentro escribimos el codigo para probar la conexion.
     - En index.js agregamos un app.use(indexRouter) para probar el endpoint.
+
+### A partir de este punto, ya solo es programacion del servidor.
+<br>
+
+---
+
+# Configuracion del FrontEnd.
