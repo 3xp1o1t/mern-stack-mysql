@@ -3,3 +3,26 @@ GET http://localhost:4000/api/tasks
 ###
 
 GET http://localhost:4000/api/tasks/1
+
+###
+
+POST http://localhost:4000/api/tasks HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Mi quinta tarea",
+  "description": "Terminar el metodo put"
+}
+
+###
+
+PUT http://localhost:4000/api/tasks/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "is_done": 0
+}
+
+###
+
+DELETE http://localhost:4000/api/tasks/3 HTTP/1.1
