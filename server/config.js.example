@@ -1,0 +1,3 @@
+Rename this file: config.js and set production values.
+// Config file
+export const PORT = 4000;

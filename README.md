@@ -21,5 +21,11 @@
 
 ### Agregar el punto de inicio
     - Crear el archivo index.js y testear un server basico con express.
+    - Crear el archivo de ejemplo: config.js.example el cual contendra lo mismo que config.js pero sin los valores reales de produccion.
+    - Crear el archivo de ejemplo: db.js.example el cual contiene los datos de conexion igual a db.js pero sin los valores reales.
 
-
+### Crear archivo de prueba para la conexion con la BD
+    - Creamos la carpeta routes
+    - Agregamos el archivo index.routes.js
+    - Dentro escribimos el codigo para probar la conexion.
+    - En index.js agregamos un app.use(indexRouter) para probar el endpoint.

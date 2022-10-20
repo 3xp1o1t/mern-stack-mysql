@@ -1,5 +1,6 @@
 # config files
 config.js
+db.js
 
 # Logs
 logs

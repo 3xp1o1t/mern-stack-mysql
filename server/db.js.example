@@ -1,0 +1,10 @@
+// Archivo de ejemplo, renombar a db.js y cambiar por los valores propios.
+import { createPool } from 'mysql2/promise';
+
+export const pool = createPool({
+  host: 'hereurhost',
+  port: hereurport,
+  user: 'hereurusername',
+  password: 'hereurpassword',
+  database: 'hereurdatabase'
+});
