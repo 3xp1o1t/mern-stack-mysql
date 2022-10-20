@@ -5,6 +5,9 @@ import tasksRoutes from './routes/tasks.routes.js';
 
 const app = express();
 
+// Habilitar el uso de JSON
+app.use(express.json());
+
 app.use(indexRoutes);
 app.use('/api/', tasksRoutes);
 
