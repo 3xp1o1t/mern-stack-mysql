@@ -9,6 +9,7 @@
       - express => REST API
       - mysql2 => MySQL2/promises para consultas a la db.
       - morgan => Ver mensajes del backend en al consola. HTTP Request Logger Middleware
+      - cors => Para habilitar la comunicacion desde el frontend.
 
 ### Configurar package.json
     - "dev": "nodemon server/index.js"  
@@ -51,6 +52,11 @@
 
   - Instalar dependencias
     - npm install react-router-dom@6
+      - Para la navegacion del lado del frontend.
+    - npm install formik --save
+      - Para crear formularios con validacion.
+    - npm install axios
+      - Para la comunicacion con el backend
 
   - Configurar router 
     - En main.jsx utilizar BrowserRouter como padre de <App />
