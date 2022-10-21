@@ -36,3 +36,24 @@
 ---
 
 # Configuracion del FrontEnd.
+
+  - Crear el proyecto en el mismo directorio
+    - npm create vite
+    - cd client
+    - npm install
+    - npm run dev
+
+  - Limpiamos el proyecto
+    - Eliminamos assets
+    - Eliminamos el contenido de index.css
+    - Eliminamos el contenido de app.css
+    - Creamos un componente vacio en app.jsx (rfce)
+
+  - Instalar dependencias
+    - npm install react-router-dom@6
+
+  - Configurar router 
+    - En main.jsx utilizar BrowserRouter como padre de <App />
+    - Probar react-router-dom creando una carpeta llamada pages
+      - y en su interior crear componenentes de prueba.
+      - Posteriormente crear las rutas en app.jsx
