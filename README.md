@@ -57,9 +57,26 @@
       - Para crear formularios con validacion.
     - npm install axios
       - Para la comunicacion con el backend
-
+    - npm install react-icons --save
+      - Utilizar iconos chidos.
+      
   - Configurar router 
     - En main.jsx utilizar BrowserRouter como padre de <App />
     - Probar react-router-dom creando una carpeta llamada pages
       - y en su interior crear componenentes de prueba.
       - Posteriormente crear las rutas en app.jsx
+
+# Para utilizar el proyecto
+  - Ejecutamos el servidor desde la carpeta principal
+    - npm run dev
+  - Ejecutamos el cliente
+    - cd client/
+    - npm run dev
+
+# Preview del proyecto
+
+## Lista de tareas
+![Screenshot](screen1.png)
+
+## Agregar/editar tareas
+![Screenshot](screen2.png)

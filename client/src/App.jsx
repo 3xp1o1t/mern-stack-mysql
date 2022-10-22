@@ -7,15 +7,19 @@ import { TaskContextProvider } from "./context/TaskContext";
 
 function App() {
   return (
-    <TaskContextProvider>
+    <div className="bg-black h-screen">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<TasksPage />}></Route>
-        <Route path="/new" element={<TasksForm />}></Route>
-        <Route path="/edit/:id" element={<TasksForm />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
-      </Routes>
-    </TaskContextProvider>
+      <div className="container mx-auto py-4 px-20">
+        <TaskContextProvider>
+          <Routes>
+            <Route path="/" element={<TasksPage />}></Route>
+            <Route path="/new" element={<TasksForm />}></Route>
+            <Route path="/edit/:id" element={<TasksForm />}></Route>
+            <Route path="*" element={<NotFound />}></Route>
+          </Routes>
+        </TaskContextProvider>
+      </div>
+    </div>
   );
 }
 

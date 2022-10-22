@@ -18,8 +18,8 @@ function TasksPage() {
 
   return (
     <div>
-      <h1>Task list</h1>
-      {renderTasksList()}
+      <h1 className="text-5xl text-green-500 font-bold text-center">Tasks</h1>
+      <div className="grid grid-cols-3 gap-2 py-4">{renderTasksList()}</div>
     </div>
   );
 }

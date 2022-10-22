@@ -36,28 +36,31 @@ function TasksForm() {
   // para que funcione correctamente es necesario usar enableREinitialize = {true}, si no, no mostrara ningun dato.
   return (
     <div>
-      <h1>{params.id ? "Edit Task" : "New Task"}</h1>
-
       <Formik
         initialValues={task}
         enableReinitialize={true}
         onSubmit={async (values) => {
           if (params.id) {
             await updateTask(params.id, values);
-            navigate('/');
           } else {
             await createTask(values);
-            navigate('/');
           }
           setTask({
             title: "",
             description: "",
           });
+          navigate("/");
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
-          <Form onSubmit={handleSubmit}>
-            <label>Title</label>
+          <Form
+            onSubmit={handleSubmit}
+            className="max-w-sm bg-zinc-900 rounded-md p-4 mx-auto mt-10"
+          >
+            <h1 className="text-4xl font-bold text-blue-500 uppercase text-center">
+              {params.id ? "Edit Task" : "New Task"}
+            </h1>
+            <label className="block text-green-500 py-1 font-semibold">Title</label>
             <input
               type="text"
               name="title"
@@ -65,16 +68,18 @@ function TasksForm() {
               onChange={handleChange}
               value={values.title}
               autoFocus
+              className="px-2 py-1 rounded-md w-full"
             />
-            <label>Description</label>
+            <label className="block text-green-500 py-1 font-semibold">Description</label>
             <textarea
               name="description"
               rows="3"
               placeholder="Write a description"
               onChange={handleChange}
               value={values.description}
+              className="px-2 py-1 rounded-md w-full mt-1" 
             ></textarea>
-            <button type="submit" disabled={isSubmitting}>
+            <button type="submit" disabled={isSubmitting} className="block bg-indigo-900 text-white px-2 py-2 w-full rounded-md mt-2">
               {isSubmitting ? "Saving..." : "Save"}
             </button>
           </Form>
