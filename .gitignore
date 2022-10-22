@@ -1,6 +1,7 @@
 # config files
 config.js
 db.js
+.vscode/
 
 # Logs
 logs

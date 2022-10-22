@@ -1,7 +1,11 @@
 import { Form, Formik } from "formik";
-import { createTaskRequest } from "../api/tasks.api.js";
+import { useTasks } from '../context/TaskContext';
 
 function TasksForm() {
+
+  // Usamos el custom hook para extraer cualquier valor del contexto global.
+  const { createTask } = useTasks();
+
   return (
     <div>
       <Formik
@@ -10,12 +14,8 @@ function TasksForm() {
           description: "",
         }}
         onSubmit={async (values, actions) => {
-          try {
-            const response = await createTaskRequest(values);
-            actions.resetForm();
-          } catch (error) {
-            console.log(error);
-          }
+          createTask(values);
+          actions.resetForm();
         }}
       >
         {({ handleChange, handleSubmit, values, isSubmitting }) => (
@@ -27,6 +27,7 @@ function TasksForm() {
               placeholder="Write a title"
               onChange={handleChange}
               value={values.title}
+              autoFocus
             />
             <label>Description</label>
             <textarea
