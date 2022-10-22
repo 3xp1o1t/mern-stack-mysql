@@ -1,8 +1,11 @@
 import {useTasks} from '../context/TaskContext';
+import {useNavigate} from 'react-router-dom';
 
 function TaskCard({ task }) {
 
   const {deleteTask} = useTasks();
+  // useNavigate para insertar links en react y redireccionar.
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -11,7 +14,7 @@ function TaskCard({ task }) {
       <span>{task.is_done == 1 ? "✔" : "❌"}</span>
       <span>{task.createdAt}</span>
       <button onClick={() => {deleteTask(task.id)}}>Delete</button>
-      <button>Edit</button>
+      <button onClick={() => {navigate(`/edit/${task.id}`)}}>Edit</button>
     </div>
   );
 }

@@ -1,5 +1,11 @@
 import { createContext, useContext, useState } from "react";
-import { getTasksRequest, deleteTaskRequest, createTaskRequest } from "../api/tasks.api.js";
+import {
+  getTasksRequest,
+  deleteTaskRequest,
+  createTaskRequest,
+  getTaskRequest,
+  updateTaskRequest,
+} from "../api/tasks.api.js";
 
 export const TaskContext = createContext();
 
@@ -47,9 +53,30 @@ export const TaskContextProvider = ({ children }) => {
     }
   };
 
+  // Funcion para obtener una tarea por ID.
+  const getTask = async (id) => {
+    try {
+      const response = await getTaskRequest(id);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Funcion para actualizar las tareas
+  const updateTask = async (id, newFields) => {
+    try {
+      const response = await updateTaskRequest(id, newFields);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     // Es posible usar tasks: tasks, pero en JS se puede acortar usando solo el objeto.
-    <TaskContext.Provider value={{ tasks, loadTasks, deleteTask, createTask }}>
+    <TaskContext.Provider
+      value={{ tasks, loadTasks, deleteTask, createTask, getTask, updateTask }}
+    >
       {children}
     </TaskContext.Provider>
   );
