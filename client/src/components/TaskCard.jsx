@@ -3,9 +3,14 @@ import {useNavigate} from 'react-router-dom';
 
 function TaskCard({ task }) {
 
-  const {deleteTask} = useTasks();
+  const {deleteTask, toggleTaskDone} = useTasks();
   // useNavigate para insertar links en react y redireccionar.
   const navigate = useNavigate();
+
+  // Funcion para controlar el estado de la tarea (completo/incompleto)
+  const handleDone = async() => {
+    await toggleTaskDone(task.id);
+  }
 
   return (
     <div>
@@ -15,6 +20,7 @@ function TaskCard({ task }) {
       <span>{task.createdAt}</span>
       <button onClick={() => {deleteTask(task.id)}}>Delete</button>
       <button onClick={() => {navigate(`/edit/${task.id}`)}}>Edit</button>
+      <button onClick={() => {handleDone(task.is_done)}}>Toggle Task</button>
     </div>
   );
 }

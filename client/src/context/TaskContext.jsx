@@ -5,6 +5,7 @@ import {
   createTaskRequest,
   getTaskRequest,
   updateTaskRequest,
+  toggleTaskDoneRequest,
 } from "../api/tasks.api.js";
 
 export const TaskContext = createContext();
@@ -72,10 +73,37 @@ export const TaskContextProvider = ({ children }) => {
     }
   };
 
+  // Function para cambiar el estado de la tarea, completo/incompleto (is_done)
+  const toggleTaskDone = async (id) => {
+    try {
+      // Buscar la tarea que queremos actualizar
+      const taskFound = tasks.find((task) => task.id === id);
+      // Si la tarea no esta completada = 0, entonces ponerla a true.
+      await toggleTaskDoneRequest(id, taskFound.is_done === 0 ? true : false);
+
+      // Actualizar el estado en vivo
+      setTasks(
+        tasks.map((task) =>
+          task.id === id ? { ...task, is_done: !task.is_done } : task
+        )
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     // Es posible usar tasks: tasks, pero en JS se puede acortar usando solo el objeto.
     <TaskContext.Provider
-      value={{ tasks, loadTasks, deleteTask, createTask, getTask, updateTask }}
+      value={{
+        tasks,
+        loadTasks,
+        deleteTask,
+        createTask,
+        getTask,
+        updateTask,
+        toggleTaskDone,
+      }}
     >
       {children}
     </TaskContext.Provider>
